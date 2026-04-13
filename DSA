@@ -1,0 +1,20 @@
+Types of language:
+-Structural,
+-functions,
+-object 
+
+Static language - compile time editor
+Dynammic language - run time editor 
+
+1. a=10
+
+a (reference varialbe)====stack
+
+10(object) -----heap
+
+2.
+a ==== [1,3,5,6]
+b======[a]
+
+a[0]= 99
+output b = [99,3,5,6]
