@@ -3,8 +3,8 @@ Types of language:
 -functions,
 -object 
 
-Static language - compile time editor
-Dynammic language - run time editor 
+-Static language - compile time editor
+- Dynammic language - run time editor 
 
 1. a=10
 
@@ -18,3 +18,80 @@ b======[a]
 
 a[0]= 99
 output b = [99,3,5,6]
+
+
+Flowcharts
+============================
+start/stop -----> 
+
+Input/Output------>
+
+Processsing-------->
+
+Condition------->
+
+
+1. Take a name and output Hello Name
+
+start
+|
+input- name
+|
+output- Hello {name}
+|
+end
+
+2. Input a number and print whether its a prime or not
+
+start
+|
+input num
+|
+c=2  <---------------c=c+1
+|               |
+c< num ======> num%c =0 ====> output not prime
+|                                |
+output prime ------------------ end
+
+
+psudo code:
+
+start
+input num
+c=2
+while c<num;
+   if num %c = 0;
+    output "not prime"
+   c=c+1
+end whhile
+output "prime
+exit
+
+
+
+start
+input salary
+if  salary> 1000:
+    saary = salary + 2000
+else
+    salary = salary + 1000
+output salary
+exit
+
+
+
+start
+input n
+if n <=1
+   print(" netither prime  nor composite
+   c =2
+   while c* c<n;
+   if num %c = 0;
+    output "not prime"
+   c=c+1
+end whhile
+output "prime
+exit
+
+
+
