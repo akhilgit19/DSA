@@ -1,0 +1,454 @@
+Day 1 – Problem Solving Foundations + Arrays + HashMap
+
+Goal for today
+
+Understand how to think before coding.
+Learn Big-O notation.
+Learn arrays.
+Learn hash maps.
+Solve your first LeetCode problem completely.
+Learn to recognize your first pattern.
+
+Part 2: Problem Solving Framework
+=============================================
+For every problem, use this checklist:
+
+1. Read the problem carefully.
+
+2. Identify:
+   - Input
+   - Output
+   - Constraints
+
+3. Think of brute force.
+
+4. Analyze complexity.
+
+5. Improve the approach.
+
+6. Identify the pattern.
+
+7. Code.
+
+8. Dry run with an example.
+
+9. Test edge cases.
+
+10. Explain complexity.
+
+Never jump directly into coding.
+
+
+Part 3: Big-O Notation
+===============================
+Big-O tells us how an algorithm grows as the input size increases.
+
+Common complexities:
+
+Complexity	Meaning	    Good?
+O(1)	      Constant	  ⭐⭐⭐⭐⭐
+O(log n)	Logarithmic  	⭐⭐⭐⭐⭐
+O(n)	      Linear	    ⭐⭐⭐⭐⭐
+O(n log n)	Sorting	    ⭐⭐⭐⭐
+O(n²)	      Nested loops	⭐⭐
+O(2ⁿ)     	Exponential	     ❌
+O(n!)	        Factorial   	❌
+
+Example 1
+print(nums[0])
+
+Time:
+
+O(1)
+
+No matter if the array has 10 or 1 million elements, it takes constant time.
+
+
+Example 2
+for num in nums:
+    print(num)
+
+If the array has:
+
+10 elements → 10 operations
+100 elements → 100 operations
+1000 elements → 1000 operations
+Complexity:
+
+O(n)
+
+
+Example 3
+for i in nums:
+    for j in nums:
+        print(i, j)
+
+Operations:
+
+n × n
+
+Complexity:
+
+O(n²)
+
+
+Part 4: Arrays
+
+--------------
+
+An array stores elements in contiguous memory.
+
+Example:
+
+Index
+
+0   1   2   3
+
++---+---+---+---+
+|10 |20 |30 |40 |
++---+---+---+---+
+
+Python:
+
+nums = [10, 20, 30, 40]
+
+Java:
+
+int[] nums = {10,20,30,40};
+
+Array Operations
+Access
+--------------
+Python
+
+print(nums[2])
+
+Output
+
+30
+
+Complexity:
+
+O(1)
+
+
+Update
+----------
+nums[1] = 100
+
+Result
+
+[10,100,30,40]
+
+
+Insert at End
+--------------
+nums.append(50)
+
+Complexity
+
+Amortized O(1)
+
+
+Search
+----------
+30 in nums
+
+Needs to scan.
+
+Complexity
+
+O(n)
+
+
+Part 5: HashMap (Dictionary)
+----------------------------------------
+A HashMap stores key-value pairs for fast lookup.
+
+Python:
+
+student = {
+    "Akhil": 95,
+    "Rahul": 80,
+    "John": 88
+}
+
+
+Java:
+
+HashMap<String,Integer> map = new HashMap<>();
+map.put("Akhil",95);
+
+
+Why use a HashMap?
+
+Suppose you have:
+
+["A", "B", "C", "D"]
+
+Finding "D" by scanning takes O(n).
+
+With a HashMap:
+
+marks["D"]
+
+Lookup is approximately O(1).
+
+
+Part 6: Problem 1 – Two Sum
+Problem Statement
+----------------------------------
+Given an array of integers and a target, return the indices of the two numbers that add up to the target.
+
+Example:
+
+nums = [2,7,11,15]
+
+target = 9
+
+Output
+
+[0,1]
+
+Step 1: Understand the Problem
+------------------------------------
+Input:
+
+Array
+Target
+
+Output:
+
+Indices
+
+Important:
+
+We return indices, not the values.
+
+
+
+
+Step 2: Brute Force
+-----------------------
+Try every pair.
+
+Python:
+
+def twoSum(nums, target):
+    n = len(nums)
+
+    for i in range(n):
+        for j in range(i + 1, n):
+            if nums[i] + nums[j] == target:
+                return [i, j]
+
+Dry Run
+nums = [2,7,11,15]
+target = 9
+
+Outer loop:
+
+i = 0
+
+Inner loop:
+
+j = 1
+
+2 + 7 = 9
+
+Found!
+
+Return:
+
+[0,1]
+
+Complexity
+
+Time:
+
+O(n²)
+
+Space:
+
+O(1)
+
+Step 3: Can We Improve?
+-----------------------
+When we are at:
+
+2
+
+Instead of checking every future number, ask:
+
+"What number do I need to reach the target?"
+
+Target = 9
+
+Current = 2
+
+Need = 7
+
+Can we quickly check if 7 has already been seen?
+
+Yes—using a HashMap.
+
+
+
+Step 4: Optimal Solution (Python)
+def twoSum(nums, target):
+    seen = {}
+
+    for i, num in enumerate(nums):
+        complement = target - num
+
+        if complement in seen:
+            return [seen[complement], i]
+
+        seen[num] = i
+
+
+Line-by-Line Explanation
+seen = {}
+
+Create an empty dictionary.
+
+Initially:
+
+{}
+
+
+for i, num in enumerate(nums):
+
+enumerate gives both the index and the value.
+
+Example:
+
+i = 0
+num = 2
+
+complement = target - num
+
+For the first element:
+
+target = 9
+num = 2
+
+complement = 7
+
+
+We need 7 to complete the pair.
+
+if complement in seen:
+
+Have we already seen 7?
+
+Initially:
+
+No
+seen[num] = i
+
+Store the current value and its index.
+
+{
+2:0
+}
+
+
+Next iteration:
+
+num = 7
+
+Need = 2
+
+Dictionary:
+
+{
+2:0
+}
+
+We have already seen 2, so return:
+
+[0,1]
+
+Complexity
+
+Time:
+
+O(n)
+
+Space:
+
+O(n)
+
+
+Java Solution
+----------------
+import java.util.HashMap;
+
+class Solution {
+
+    public int[] twoSum(int[] nums, int target) {
+
+        HashMap<Integer, Integer> seen = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i++) {
+
+            int complement = target - nums[i];
+
+            if (seen.containsKey(complement)) {
+                return new int[] { seen.get(complement), i };
+            }
+
+            seen.put(nums[i], i);
+        }
+
+        return new int[] {};
+    }
+}
+
+Pattern Recognition
+
+Whenever you see phrases like:
+
+Find a pair
+Target sum
+Complement
+Two numbers add up to X
+
+Think:
+
+HashMap + One Pass
+
+This is your first DSA pattern.
+
+Common Mistakes
+Returning the numbers instead of the indices.
+Adding the current number to the HashMap before checking for its complement.
+Using two nested loops when an O(n) solution is expected.
+Forgetting that there is usually exactly one valid answer in this problem.
+
+Homework
+Theory
+Explain the difference between O(1), O(n), and O(n²) in your own words.
+Explain why a HashMap is useful in Two Sum.
+Coding Practice (Python and Java)
+Solve Two Sum without looking at the solution.
+Print every pair in an array.
+Find the maximum element in an array.
+Find the minimum element in an array.
+Reverse an array without using built-in reverse functions.
+Count the frequency of each element using a HashMap.
+
+
+Interview Questions
+
+Try answering these before our next session:
+
+What is an array?
+Why is array indexing O(1)?
+What is a HashMap?
+Why is HashMap lookup usually O(1)?
+Why is the brute-force solution to Two Sum O(n²)?
+Why is the optimized solution O(n)?
+What is a complement in the context of Two Sum?
+What are the space complexities of the brute-force and optimized approaches?
