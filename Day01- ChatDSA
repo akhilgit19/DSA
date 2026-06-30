@@ -1,0 +1,704 @@
+Day 1 — DSA Foundations (Most Important Day)
+=================================================
+
+DSA = Data Structures + Algorithms
+
+Data Structure = how data is stored.
+
+Examples
+  - Array
+  - Linked List
+  - Stack
+  - Queue
+  - Tree
+  - Graph
+
+Algorithm = step-by-step procedure to solve a problem.
+
+
+Data Structure	Real World Example
+====================================
+Array	----------Students sitting in a row
+Linked List-----Train compartments
+Stack-----------Plates in a hotel
+Queue-----------	Ticket counter line
+Tree-------------	Organization hierarchy
+Graph-------------Google Maps
+
+Example:
+   Problem: Find a number 7 in a list
+   Algorithm:
+       - Start from first element
+       - Compare each element with 7
+       - Stop when found
+
+What is Time Complexity
+- Time complexity measures how the running time grows as input grows
+
+Example 
+ if n =10 -----> 10 operations
+ if n =1000----> 1000 operations
+
+Growth is proportional to n
+
+for i in range(n):
+    print(i)
+if n =5
+  runs 5 times
+if n=1000
+  runs 1000 times
+We write:
+o(n)
+
+Big O Notation
+======================================
+Big O described the worst case growth
+
+Complexity               Meaning
+O(1)                  Constant
+O(log n)              Logarithmic
+O(n)                  Linear
+O(n log n)            Efficient sorting
+O(n2)                 Netsted loops
+O(2n)                 very slow
+
+
+suppose n =1,000,000
+
+Complexity         Approx operations
+O(1)                 1
+O(log n)             20
+O(n)                1,000,000
+O(n2)               1,000,000,000,000
+
+This is why interviewers care about complexity
+
+O(1)--- operations are fixed
+=====================
+O(1) Constant time
+arr = [10,20,30]
+
+print(arr[1])
+Always takes one operation.
+Whether array size is:
+3,300,300000000
+
+O(n)-----loops runs n times
+============================
+O(N) Linear Time
+for num in arr:
+    print(num)
+
+Array:[1,2,3,4,5]
+opeartions : 5
+
+array 1000 elements
+complextiy : O(n)
+
+
+O(N2)---- Outer loop =n, inner loop =n Total = n*n
+========================================================
+O(N²) Quadratic Time
+
+for i in arr:
+    for j in arr:
+        print(i, j)
+
+suppose n =3
+ operations 3*3 =9
+suppose n =100
+operations 100*100 =10000
+Complexity -O(N²)
+
+
+O(log N)
+======================
+Most important for interviews.
+
+Used in:-
+Binary Search
+BST
+Heaps
+
+Example:
+Find 90 in sorted array.
+1 2 3 4 5 6 7 8 9 10
+Don't check one by one.
+Check middle:
+5
+90 is bigger.
+Discard half.
+Again middle.
+Discard half.
+Again middle.
+Every step:
+N → N/2 → N/4 → N/8
+Complexity:
+
+O(log N)
+
+
+
+Most Interview questino, Can you do better than o(n2)
+- Your jobs is to reduce complexity
+
+Eg:
+ Brute force
+  - O(n2)
+ Better: use a HashMap O(n)--
+
+
+Space Complexity 
+1
+- Space complexity measures extra memory
+ used
+  Example 
+  Only a few variables
+  - Space : O(1)
+   a = 10
+   b = 20
+   c = a + b
+Memory used: 3 variables
+Complexity: O(1)
+
+2
+New array grwos with n
+  - Space: O(n)
+
+new_arr = []
+
+for num in arr:
+    new_arr.append(num)
+If N items exist: Extra memory = N
+Complexity: O(N)
+
+3.
+
+i = n
+
+while i > 1:
+    i = i // 2
+
+Sequence:
+
+N
+N/2
+N/4
+N/8
+
+Answer:
+
+O(log N)
+
+
+
+Exercise 1 — Print Numbers from 1 to N
+===========================================
+Problem
+
+Given:
+
+n = 5
+
+Python:
+
+n = 5
+for i in range(1, n + 1):
+    print(i)
+
+
+Java
+
+int n = 5;
+
+for(int i = 1; i <= n; i++){
+    System.out.println(i);
+}
+
+Time Complexity
+
+Loop runs n times.
+
+O(n)
+
+Space Complexity
+
+Only one variable (i).
+
+O(1)
+
+Exercise 2 — Find the Largest Element
+======================================
+Problem
+[3,7,2,9,1]
+
+Output
+
+9
+
+Python:
+arr = [3,7,2,9,1]
+
+largest = arr[0]
+
+for num in arr:
+    if num > largest:
+        largest = num
+
+print(largest)
+
+Java:
+
+int arr[] = {3,7,2,9,1};
+
+int largest = arr[0];
+
+for(int num : arr){
+    if(num > largest){
+        largest = num;
+    }
+}
+
+System.out.println(largest);
+
+Time
+
+Visit every element once.
+O(n)
+
+Space
+O(1)
+
+
+Exercise 3 — Find the Smallest Element
+==============================================
+Python
+arr = [3,7,2,9,1]
+
+smallest = arr[0]
+
+for num in arr:
+    if num < smallest:
+        smallest = num
+
+print(smallest)
+Complexity
+Time : O(n)
+
+Space : O(1)
+
+Java:
+
+int arr[] = {3,7,2,9,1};
+
+int smalles = arr[0];
+
+for(int num : arr){
+    if(num < smalles){
+        smalles = num;
+    }
+}
+
+System.out.println(smalles);
+
+
+Exercise 4 — Count Even Numbers
+====================================
+Python
+arr = [1,2,3,4,5,6]
+
+count = 0
+
+for num in arr:
+    if num % 2 == 0:
+        count += 1
+
+print(count)
+
+Complexity
+Time : O(n)
+
+Space : O(1)
+
+Java:
+
+int arr[] = {3,7,2,9,1};
+
+int count = 0;
+
+for(int num : arr){
+    if(num %2 ==0 ){
+        count += 1
+    }
+}
+System.out.println(count);
+
+
+
+Exercise 5 — Calculate Sum
+=================================
+Input
+
+1 2 3 4
+
+Output
+
+10
+
+Python:
+=============
+arr = [1,2,3,4]
+
+total = 0
+
+for num in arr:
+    total += num
+
+print(total)
+
+
+Java:
+
+int arr[] = {3,7,2,9,1};
+
+int total = 0;
+
+for(int num : arr){
+    total += num;
+}
+System.out.println(total);
+
+
+Exercise 6 — Reverse a List
+===============================
+Input
+
+1 2 3 4
+
+Output
+
+4 3 2 1
+
+Python:
+--------
+arr = [1,2,3,4]
+
+reversed_arr = []
+
+
+for i in range(len(arr)-1, -1, -1):
+    reversed_arr.append(arr[i])
+
+print(reversed_arr)
+
+Complexity
+Time : O(n)
+
+Space : O(n)
+
+
+Java:
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        int[] arr = {1, 2, 3, 4};
+
+        int[] reversedArr = new int[arr.length];
+
+        int index = 0;
+
+        for (int i = arr.length - 1; i >= 0; i--) {
+            reversedArr[index] = arr[i];
+            index++;
+        }
+
+        for (int num : reversedArr) {
+            System.out.print(num + " ");
+        }
+    }
+}
+
+
+Exercise 7 — Find Second Largest
+========================================
+Input
+
+5 8 2 10 4
+
+Output
+
+8
+
+Python: 
+
+arr = [5,8,2,10,4]
+
+largest = float('-inf')
+second =  float('-inf')
+
+for num in arr:
+    if num > largest:
+        second = largest
+        largest = num
+    elif num > second and num != largest:
+        second = num
+
+print(second)
+
+
+Complexity
+Time : O(n)
+
+Space : O(1)
+
+
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        int[] arr = {5,8,2,10,4};
+
+        int largest = Integer.MIN_VALUE;
+        int second = Integer.MIN_VALUE;
+
+        for(int num : arr){
+
+            if(num > largest){
+                second = largest;
+                largest = num;
+            }
+            else if(num > second && num != largest){
+                second = num;
+            }
+
+        }
+
+        System.out.println(second);
+
+    }
+
+}
+
+
+Exercise 8 — Check Palindrome
+===================================
+
+A palindrome reads the same forwards and backwards.
+
+Examples:
+
+madam
+racecar
+level
+noon
+
+
+Input madam
+
+OutputTrue
+
+
+Python:
+=========
+word = "madam"
+
+if word == word[::-1]:
+    print(True)
+else:
+    print(False)
+
+Complexity
+Time : O(n)
+
+Space : O(n)
+
+
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        String word = "madam";
+
+        int left = 0;
+        int right = word.length() - 1;
+
+        while (left < right) {
+
+            if (word.charAt(left) != word.charAt(right)) {
+                System.out.println(false);
+                return;
+            }
+
+            left++;
+            right--;
+        }
+
+        System.out.println(true);
+    }
+}
+
+
+Exercise 9 — Count Vowels
+=============================
+Input
+
+hello
+
+Output
+
+2
+
+
+Python
+==========
+
+word = "hello"
+
+count = 0
+
+for ch in word:
+    if ch in "aeiouAEIOU":
+        count += 1
+
+print(count)
+
+
+
+Complexity
+Time : O(n)
+
+Space : O(1)
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        String word = "hello";
+
+        int count = 0;
+
+        for (int i = 0; i < word.length(); i++) {
+
+            char ch = word.charAt(i);
+
+            if (ch == 'a' || ch == 'e' || ch == 'i' ||
+                ch == 'o' || ch == 'u' ||
+                ch == 'A' || ch == 'E' || ch == 'I' ||
+                ch == 'O' || ch == 'U') {
+
+                count++;
+            }
+
+        }
+
+        System.out.println(count);
+
+    }
+
+}
+
+
+Exercise 10 — Factorial
+==========================
+Input 5
+
+Output 120
+
+n = 5
+
+fact = 1
+
+for i in range(1, n + 1):
+    fact *= i
+
+print(fact)
+
+
+Complexity
+Time : O(n)
+
+Space : O(1)
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        int n = 5;
+
+        int fact = 1;
+
+        for (int i = 1; i <= n; i++) {
+            fact = fact * i;
+        }
+
+        System.out.println(fact);
+    }
+}
+
+Homework Theory Questions
+
+1. Difference between O(1), O(N), O(N²), and O(log N)
+
+Complexity          	Meaning	                         Example
+
+O(1)            Constant time.                        Access arr[3] in an array.
+            The number of operations
+            does not depend on the input size.
+
+
+O(log N)    Logarithmic time.                              Binary Search.
+            The problem size is reduced by a 
+             constant factor (often half) each step.
+
+O(N)        Linear time. Every element is processed once.    Finding the maximum element in an array.
+
+O(N²)      Quadratic time. Usually caused by two nested loops  Comparing every pair of elements (e.g., Bubble Sort).
+            over the same data.
+
+
+2. Why is O(log N) Better than O(N)?
+
+  Imagine you have 1,000,000 sorted numbers.
+
+Linear Search (O(N))
+
+You may need to check every element.
+
+Linear Search (O(N))
+You may need to check every element.
+
+Worst case:
+
+1,000,000 comparisons
+
+Binary Search (O(log N))
+
+Each comparison cuts the search space in half.
+
+1,000,000
+↓
+
+500,000
+↓
+
+250,000
+↓
+
+125,000
+↓
+
+...
+↓
+
+1
+
+It takes only about 20 comparisons to find the target.
+
+Input Size	O(N)	O(log N)
+100	       100      	~7
+1,000    	1,000	      ~10
+1,000,000	 1,000,000	 ~20
