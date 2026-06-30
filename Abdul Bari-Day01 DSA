@@ -1,0 +1,107 @@
+Topics
+==========
+
+--- Physical Data Structures(Arrangements of data structures)
+-Arrays
+-Matrices
+-Linked List
+
+--- Logical Data Structures(utilising data structures)
+-Stack
+-Queues
+-Trees
+-Graph
+-Hashing
+
+
+-Recursion
+-Sortings
+
+
+c and c++ concepts
+==================
+- Arrays- Collection of similar  data elements
+          int A[5];   A[ , , , , ]
+                        0 1 2 3 4
+                      A[ 27,10 , , , ]
+                          0  1  2 3 4
+           A[0]=27;
+           A[1]=10;
+
+int main() 
+{
+  int A[5];
+  int B[5]={2,4,6,8,10};
+  int i;
+
+ for(i =0; i<5; i++){
+    printf("%d", B[i]);
+}
+
+ Main Memory
+================
+Heap
+Stack
+main
+ A[10,5,6,9] B[2,4,6,8,10]
+code section
+
+
+Problem
+---------
+================
+#include <iostream>
+#include<stdio.h>
+using namespace std;
+
+int main()
+{
+    int A[10] ={2,46,8,10,12};
+
+    // A[0] = 12;
+    // A[1] = 12;
+    // A[2] = 12;
+    // A[3] = 12;
+    // A[4] = 12;
+
+    for( int i =0; i<10; i++){
+        cout<< A[i]<<endl;
+    }
+
+
+    cout << "Size of array: " << sizeof(A) << endl;
+    cout << "Second element: " << A[8] << endl;
+
+    printf("%d\n", A[9]);
+
+
+    int n;
+    cout <<"Enter Size";
+    cin>>n;
+    int B[n];
+    B[0]=2;
+
+    for(int x:B)
+    {
+       cout<<x<<endl;
+    }
+
+  
+    
+
+    return 0;
+}
+
+- Structure 
+- Pointers
+- Reference
+- Parameter Passing
+- classes
+- constructor
+- templates
+
+
+
+
+
+
